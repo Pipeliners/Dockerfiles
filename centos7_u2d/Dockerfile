@@ -9,7 +9,7 @@
 #         \    \        __/
 #          \____\______/
 #
-# VERSION:        0.1
+# VERSION:        0.2
 # DESCRIPTION:    CentOS 7 update 
 # AUTHOR:         Patrick M. Slattery <pslattery@mywebgrocer.com>
 # COMMENTS:
