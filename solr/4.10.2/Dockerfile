@@ -21,6 +21,8 @@
 #   docker build --tag registry.mywebgrocer.com/mywebgrocer/solr:latest https://raw.githubusercontent.com/Pipeliners/Dockerfiles/master/solr/4.10.2/Dockerfile
 #   docker tag registry.mywebgrocer.com/mywebgrocer/solr:latest registry.mywebgrocer.com/mywebgrocer/solr:4.10.2
 #   docker tag registry.mywebgrocer.com/mywebgrocer/solr:latest registry.mywebgrocer.com/mywebgrocer/solr:dev
+#   docker login registry.mywebgrocer.com
+#   docker push registry.mywebgrocer.com/mywebgrocer/solr
 #
 #   # Run the container:
 #   docker run --detach --name solr --publish 8983:8983 registry.mywebgrocer.com/mywebgrocer/solr:latest
