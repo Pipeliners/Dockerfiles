@@ -23,6 +23,7 @@
 #   docker tag registry.mywebgrocer.com/mywebgrocer/solr:latest registry.mywebgrocer.com/mywebgrocer/solr:dev
 #   docker login registry.mywebgrocer.com
 #   docker push registry.mywebgrocer.com/mywebgrocer/solr
+#   docker pull registry.mywebgrocer.com/mywebgrocer/solr
 #
 #   # Run the container:
 #   docker run --detach --name solr --publish 8983:8983 registry.mywebgrocer.com/mywebgrocer/solr:latest
