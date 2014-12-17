@@ -36,6 +36,7 @@ MAINTAINER Patrick M. Slattery <pslattery@mywebgrocer.org>
 
 ENV SOLR_VERSION 4.10.2
 ENV CONNECTORJ_VERSION 5.1.34
+ENV FUN 1.0
 
 # Download and install the MySQL Java connector
 RUN curl -k --location http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -o /tmp/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -#
