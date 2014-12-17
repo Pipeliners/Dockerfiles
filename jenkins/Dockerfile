@@ -39,7 +39,7 @@ MAINTAINER Patrick M. Slattery <pslattery@mywebgrocer.org>
 
 ENV JENKINS_VERSION 1.594
 
-RUN yum install zip
+RUN yum install -y zip
 RUN mkdir /usr/share/jenkins/
 RUN useradd -d /home/jenkins -m -s /bin/bash jenkins
 
