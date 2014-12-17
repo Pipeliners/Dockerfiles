@@ -44,7 +44,7 @@ RUN curl -k --location http://dev.mysql.com/get/Downloads/Connector-J/mysql-conn
 RUN mkdir -p /opt/solr
 RUN curl -sSL http://apache.mirrors.pair.com/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz | tar -v -C /opt -xz
 RUN cp -r /opt/solr-$SOLR_VERSION/example /opt/solr
-WORKDIR /opt/solr
+WORKDIR /opt/solr/example
 VOLUME /opt/solr/solr/core1/data
 EXPOSE 8983
 CMD ["/opt/java/latest/bin/java", "-jar", "start.jar"]
