@@ -44,8 +44,8 @@ RUN curl -k --location http://dev.mysql.com/get/Downloads/Connector-J/mysql-conn
   # chown -cR ufecru:gfecru ${FISHEYE_LIBRARY_PATH};
 RUN mkdir -p /opt/solr
 RUN curl -k --location http://apache.mirrors.pair.com/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz -o /tmp/solr-${SOLR_VERSION}.tgz -#
-RUN tar xfz /tmp/solr-${SOLR_VERSION}.tgz /opt/solr
-RUN ls -la /opt/solr
+# RUN tar xfz /tmp/solr-${SOLR_VERSION}.tgz /opt/solr
+# RUN ls -la /opt/solr
   # mv /opt/fecru/fecru-${SOLR_VERSION} /opt/solr/${SOLR_VERSION} && \
   # ln -s /opt/solr/${SOLR_VERSION} /opt/solr/latest;
   
