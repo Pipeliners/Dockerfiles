@@ -23,7 +23,7 @@
 #   docker tag registry.mywebgrocer.com/mywebgrocer/solr:latest registry.mywebgrocer.com/mywebgrocer/solr:dev
 #
 #   # Run the container:
-#   docker run --rm --name solr registry.mywebgrocer.com/mywebgrocer/solr:latest cat /etc/redhat-release
+#   docker run --detach --name solr --publish 8983:8983 registry.mywebgrocer.com/mywebgrocer/solr:latest
 #
 #   # Debug mode:
 #   docker run --rm -it --name solr_debug registry.mywebgrocer.com/mywebgrocer/solr:latest bash
