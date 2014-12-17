@@ -38,14 +38,13 @@ ENV SOLR_VERSION 4.10.2
 ENV CONNECTORJ_VERSION 5.1.34
 
 # Download and install the MySQL Java connector
-RUN \
-  curl -k --location http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -o /tmp/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -# && \
+RUN curl -k --location http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -o /tmp/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz -#
   # tar xfz /tmp/mysql-connector-java-${CONNECTORJ_VERSION}.tar.gz mysql-connector-java-${CONNECTORJ_VERSION}/mysql-connector-java-${CONNECTORJ_VERSION}-bin.jar -O > ${FISHEYE_LIBRARY_PATH}/mysql-connector-java-${CONNECTORJ_VERSION}-bin.jar && \
   # chown -cR ufecru:gfecru ${FISHEYE_LIBRARY_PATH};
-  mkdir -p /opt/solr && \
-  curl -k --location http://apache.mirrors.pair.com/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz -o /tmp/solr-${SOLR_VERSION}.tgz -# && \
-  tar xfz /tmp/solr-${SOLR_VERSION}.tgz /opt/solr && \
-  ls -la /opt/solr;
+RUN mkdir -p /opt/solr
+RUN curl -k --location http://apache.mirrors.pair.com/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz -o /tmp/solr-${SOLR_VERSION}.tgz -#
+RUN tar xfz /tmp/solr-${SOLR_VERSION}.tgz /opt/solr
+RUN ls -la /opt/solr
   # mv /opt/fecru/fecru-${SOLR_VERSION} /opt/solr/${SOLR_VERSION} && \
   # ln -s /opt/solr/${SOLR_VERSION} /opt/solr/latest;
   
