@@ -73,6 +73,6 @@ EXPOSE 8080
 # will be used by attached slave agents:
 EXPOSE 50000
 
-USER jenkins
+# USER jenkins
 
 CMD ["/opt/java/latest/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
