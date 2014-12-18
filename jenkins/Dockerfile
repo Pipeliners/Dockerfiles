@@ -41,12 +41,12 @@ MAINTAINER Patrick M. Slattery <pslattery@mywebgrocer.org>
 
 ENV JENKINS_VERSION 1.594
 
-# Download and install Jenkins for RHEL/CentOS
-RUN curl --location http://pkg.jenkins-ci.org/redhat/jenkins.repo --output /etc/yum.repos.d/jenkins.repo -#
-RUN rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
-RUN yum install -y jenkins-${JENKINS_VERSION}
+# Download and install Jenkins
+RUN mkdir -p /opt/jenkins
+RUN curl --location http://mirrors.jenkins-ci.org/war/${JENKINS_VERSION}/jenkins.war --output /opt/jenkins/jenkins.war -#
 
-# ENV JENKINS_HOME /var/jenkins_home
+RUN mkdir -p /var/lib/jenkins/plugins
+ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
 # VOLUME /var/jenkins_home
 
@@ -58,4 +58,4 @@ EXPOSE 50000
 
 USER jenkins
 
-CMD ["/opt/java/latest/bin/java", "-jar", "/usr/lib/jenkins/jenkins.war"]
+CMD ["/opt/java/latest/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
