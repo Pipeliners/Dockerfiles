@@ -64,7 +64,7 @@ docker \
 docker \
   run \
   --detach \
-  --hostname nginx
+  --hostname nginx \
   --link jenkins_chef:chef \
   --name nginx \
   --publish 80:80 \
