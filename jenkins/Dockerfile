@@ -54,11 +54,11 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/javadoc.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/junit.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/antisamy-markup-formatter.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/translation.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
 
 # Replace any outdated Jenkins plugins:
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/maven-plugin.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
@@ -78,7 +78,8 @@ RUN \
   curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output greenballs.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output postbuild-task.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output copy-to-slave.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -#;
+  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/active-directory.hpi --output active-directory.hpi -#;
   
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
