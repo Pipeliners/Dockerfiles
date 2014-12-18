@@ -39,7 +39,7 @@ docker \
   --tag registry.mywebgrocer.com/mywebgrocer/jenkins:1.594 \
   https://raw.githubusercontent.com/Pipeliners/Dockerfiles/master/jenkins/Dockerfile
 ```
-
+##### Build data only container for the Nginx conf.d files
 ```shell
 mkdir -p /srv/nginx/conf.d
 curl --location https://raw.githubusercontent.com/patrickmslatteryvt/dockerfiles/master/nginx/etc/nginx/conf.d/jenkins.conf --output /srv/nginx/conf.d/jenkins.conf -#
