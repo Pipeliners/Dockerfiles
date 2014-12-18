@@ -45,9 +45,19 @@ ENV JENKINS_VERSION 1.594
 RUN mkdir -p /opt/jenkins
 RUN curl --location http://mirrors.jenkins-ci.org/war/${JENKINS_VERSION}/jenkins.war --output /opt/jenkins/jenkins.war -#
 
+# Remove any unnecessary or unused Jenkins plugins:
 RUN yum install -y zip
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/cvs.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/pam-auth.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/credentials.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/javadoc.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/junit.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/antisamy-markup-formatter.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/translation.hpi
+
+# Replace any outdated Jenkins plugins:
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/maven-plugin.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/subversion.hpi
 
 RUN \
   mkdir -p /var/lib/jenkins/plugins && \
@@ -59,12 +69,11 @@ RUN \
   curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/credentials.hpi --output credentials.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output javadoc.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output maven-plugin.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/junit.hpi --output junit.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output matrix-auth.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output matrix-project.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/antisamy-markup-formatter.hpi --output antisamy-markup-formatter.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -#;
   
 ENV JENKINS_HOME /var/lib/jenkins
