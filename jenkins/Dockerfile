@@ -58,23 +58,27 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/translation.hpi
 # Replace any outdated Jenkins plugins:
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/maven-plugin.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
 
 RUN \
   mkdir -p /var/lib/jenkins/plugins && \
   cd /var/lib/jenkins/plugins && \
+  # Plugins to replace: && \
+  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output maven-plugin.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output matrix-auth.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output matrix-project.hpi -# && \
+  # New plugins: && \
   curl --location http://updates.jenkins-ci.org/latest/sidebar-link.hpi --output sidebar-link.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output greenballs.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output postbuild-task.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output copy-to-slave.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/credentials.hpi --output credentials.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output maven-plugin.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/junit.hpi --output junit.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output matrix-auth.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output matrix-project.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -#;
+  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -#;
   
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
