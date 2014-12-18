@@ -45,6 +45,10 @@ ENV JENKINS_VERSION 1.594
 RUN mkdir -p /opt/jenkins
 RUN curl --location http://mirrors.jenkins-ci.org/war/${JENKINS_VERSION}/jenkins.war --output /opt/jenkins/jenkins.war -#
 
+RUN yum install -y zip
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/cvs.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/pam-auth.hpi
+
 RUN \
   mkdir -p /var/lib/jenkins/plugins && \
   cd /var/lib/jenkins/plugins && \
