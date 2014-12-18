@@ -45,7 +45,24 @@ ENV JENKINS_VERSION 1.594
 RUN mkdir -p /opt/jenkins
 RUN curl --location http://mirrors.jenkins-ci.org/war/${JENKINS_VERSION}/jenkins.war --output /opt/jenkins/jenkins.war -#
 
-RUN mkdir -p /var/lib/jenkins/plugins
+RUN \
+  mkdir -p /var/lib/jenkins/plugins && \
+  cd /var/lib/jenkins/plugins && \
+  curl --location http://updates.jenkins-ci.org/latest/sidebar-link.hpi --output sidebar-link.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output greenballs.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output postbuild-task.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output copy-to-slave.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/credentials.hpi --output credentials.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output javadoc.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/junit.hpi --output junit.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output matrix-auth.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output matrix-project.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/antisamy-markup-formatter.hpi --output antisamy-markup-formatter.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -#;
+  
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
 # VOLUME /var/jenkins_home
