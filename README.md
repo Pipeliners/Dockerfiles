@@ -85,11 +85,20 @@ docker \
 ##### Start a bunch of containers
 ```shell
 # Define container to use:
-CONTAINER=registry.mywebgrocer.com/mywebgrocer/jenkins:latest
+CONTAINER=registry.mywebgrocer.com/mywebgrocer/jenkins:1.594
 # Define number of containers:
 NUM=20
 # Start X containers
-for i in {1..${NUM}}; do docker run --detach=true --publish=8${i}:80 --name=container${i} -t ${CONTAINER} && sleep 1; done
+for i in {1..${NUM}}; \
+  do \
+  docker \
+    run \
+    --detach=true \
+    --publish=8${i}:80 \
+    --name=container${i} \
+    -t ${CONTAINER} && \
+    sleep 1; \
+  done
 # Count the containers we started
 docker ps|grep -c ${CONTAINER}
 # Stop all the containers
