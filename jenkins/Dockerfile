@@ -56,8 +56,8 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/antisamy-markup-formatter.hp
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/translation.hpi
 
 # Replace any outdated Jenkins plugins:
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/maven-plugin.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/subversion.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/maven-plugin.hpi
+RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
 
 RUN \
   mkdir -p /var/lib/jenkins/plugins && \
