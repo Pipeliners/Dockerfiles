@@ -86,8 +86,8 @@ docker \
 ```shell
 # Define container to use:
 CONTAINER=registry.mywebgrocer.com/mywebgrocer/jenkins:1.594
-# Start 20 containers
-for i in {1..20}; do docker run --detach=true --publish=8${i}:80 --name=container${i} -t ${CONTAINER} && sleep 1;done
+# Start 10 containers
+for i in {1..10}; do docker run --detach=true --publish=8${i}:80 --name=container${i} -t ${CONTAINER} && sleep 1;done
 # Count the containers we started
 docker ps|grep -c ${CONTAINER}
 # Stop all the containers
