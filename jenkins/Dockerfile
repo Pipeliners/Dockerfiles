@@ -49,7 +49,7 @@ RUN curl --location http://mirrors.jenkins-ci.org/war/${JENKINS_VERSION}/jenkins
 RUN yum install -y zip
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/cvs.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/pam-auth.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/junit.hpi
+# RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/junit.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/antisamy-markup-formatter.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/translation.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
