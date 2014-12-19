@@ -66,7 +66,7 @@ RUN \
   mkdir -p /var/lib/jenkins/plugins && \
   cd /var/lib/jenkins/plugins && \
   # Plugins to replace: && \
-  curl --location http://updates.jenkins-ci.org/latest/javadoc.hpi --output maven-plugin.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output maven-plugin.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
