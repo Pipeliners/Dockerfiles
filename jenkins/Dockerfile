@@ -56,7 +56,7 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
 
 # Replace any outdated Jenkins plugins:
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/maven-plugin.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
+# RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
@@ -64,7 +64,7 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
 RUN mkdir -p /var/lib/jenkins/plugins
 # Plugins to replace:
 RUN curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output /var/lib/jenkins/plugins/maven-plugin.hpi -#
-RUN curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output /var/lib/jenkins/plugins/subversion.hpi -#
+# RUN curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output /var/lib/jenkins/plugins/subversion.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output /var/lib/jenkins/plugins/mailer.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output /var/lib/jenkins/plugins/matrix-auth.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output /var/lib/jenkins/plugins/matrix-project.hpi -#
@@ -82,7 +82,7 @@ RUN curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output /va
 RUN curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output /var/lib/jenkins/plugins/dashboard-view.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output /var/lib/jenkins/plugins/docker-build-publish.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output /var/lib/jenkins/plugins/token-macro.hpi -#
-  
+
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
 # VOLUME /var/jenkins_home
