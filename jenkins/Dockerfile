@@ -61,30 +61,27 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
 
-RUN \
-  mkdir -p /var/lib/jenkins/plugins && \
-  cd /var/lib/jenkins/plugins && \
-  # Plugins to replace: && \
-  curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output maven-plugin.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output subversion.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/ldap.hpi --output ldap.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output mailer.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output matrix-auth.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output matrix-project.hpi -# && \
-  # New plugins: && \
-  curl --location http://updates.jenkins-ci.org/latest/sidebar-link.hpi --output sidebar-link.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output greenballs.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output postbuild-task.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output copy-to-slave.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/active-directory.hpi --output active-directory.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/jira.hpi --output jira.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/build-pipeline-plugin.hpi --output build-pipeline-plugin.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi --output parameterized-trigger.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output jquery.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output dashboard-view.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output docker-build-publish.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output token-macro.hpi -#;
+RUN mkdir -p /var/lib/jenkins/plugins
+# Plugins to replace:
+RUN curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output /var/lib/jenkins/plugins/maven-plugin.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output /var/lib/jenkins/plugins/subversion.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output /var/lib/jenkins/plugins/mailer.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output /var/lib/jenkins/plugins/matrix-auth.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output /var/lib/jenkins/plugins/matrix-project.hpi -#
+# New plugins:
+RUN curl --location http://updates.jenkins-ci.org/latest/sidebar-link.hpi --output /var/lib/jenkins/plugins/sidebar-link.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output /var/lib/jenkins/plugins/greenballs.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output /var/lib/jenkins/plugins/postbuild-task.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output /var/lib/jenkins/plugins/copy-to-slave.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output /var/lib/jenkins/plugins/git-client.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/active-directory.hpi --output /var/lib/jenkins/plugins/active-directory.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/jira.hpi --output /var/lib/jenkins/plugins/jira.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/build-pipeline-plugin.hpi --output /var/lib/jenkins/plugins/build-pipeline-plugin.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi --output /var/lib/jenkins/plugins/parameterized-trigger.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output /var/lib/jenkins/plugins/jquery.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output /var/lib/jenkins/plugins/dashboard-view.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output /var/lib/jenkins/plugins/docker-build-publish.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output /var/lib/jenkins/plugins/token-macro.hpi -#
   
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
