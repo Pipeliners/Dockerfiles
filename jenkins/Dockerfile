@@ -107,6 +107,7 @@ RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --out
 RUN curl --location http://updates.jenkins-ci.org/latest/durable-task.hpi --output /var/lib/jenkins/plugins/durable-task.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --output /var/lib/jenkins/plugins/docker-plugin.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/ssh-slaves.hpi --output /var/lib/jenkins/plugins/ssh-slaves.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/chucknorris.hpi --output /var/lib/jenkins/plugins/chucknorris.hpi -#
 
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
