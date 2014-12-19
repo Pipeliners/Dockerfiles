@@ -83,6 +83,10 @@ RUN curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --ou
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output /var/lib/jenkins/plugins/docker-build-publish.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output /var/lib/jenkins/plugins/token-macro.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/beer.hpi --output /var/lib/jenkins/plugins/beer.hpi -#
+# Add Docker plugin - Use a docker host to dynamically provision a slave, run a single build, then tear-down that slave.
+RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --output /var/lib/jenkins/plugins/docker-plugin.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --output /var/lib/jenkins/plugins/docker-plugin.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/ssh-slaves.hpi --output /var/lib/jenkins/plugins/ssh-slaves.hpi -#
 
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
