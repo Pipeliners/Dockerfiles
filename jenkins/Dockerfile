@@ -61,6 +61,25 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
 # RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
 # RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
 
+# Still need to update the following plugins
+# Subversion Plugin - This plugin adds the Subversion support (via SVNKit) to Jenkins.
+# 2.4.5	1.54
+#
+# Matrix Project Plugin - Multi-configuration (matrix) project type.
+# 1.4	1.3
+# 	
+# Matrix Authorization Strategy Plugin - Offers matrix-based security authorization strategies (global and per-project).
+# 1.2	1.1
+# 	
+# JUnit Plugin - Allows JUnit-format test results to be published.
+# 1.3	1.2-beta-4
+#	
+# Javadoc Plugin - This plugin adds Javadoc support to Jenkins.
+# 1.3	1.1
+#	
+# Credentials Plugin - This plugin allows you to store credentials in Jenkins.
+# 1.19	1.18
+
 RUN mkdir -p /var/lib/jenkins/plugins
 # Plugins to replace:
 RUN curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output /var/lib/jenkins/plugins/maven-plugin.hpi -#
