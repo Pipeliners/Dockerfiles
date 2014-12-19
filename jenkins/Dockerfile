@@ -58,16 +58,16 @@ RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/ldap.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/maven-plugin.hpi
 # RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/subversion.hpi
 RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/mailer.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
-RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
+# RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-auth.hpi
+# RUN zip -d /opt/jenkins/jenkins.war WEB-INF/plugins/matrix-project.hpi
 
 RUN mkdir -p /var/lib/jenkins/plugins
 # Plugins to replace:
 RUN curl --location http://updates.jenkins-ci.org/latest/maven-plugin.hpi --output /var/lib/jenkins/plugins/maven-plugin.hpi -#
 # RUN curl --location http://updates.jenkins-ci.org/latest/subversion.hpi --output /var/lib/jenkins/plugins/subversion.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/mailer.hpi --output /var/lib/jenkins/plugins/mailer.hpi -#
-RUN curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output /var/lib/jenkins/plugins/matrix-auth.hpi -#
-RUN curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output /var/lib/jenkins/plugins/matrix-project.hpi -#
+# RUN curl --location http://updates.jenkins-ci.org/latest/matrix-auth.hpi --output /var/lib/jenkins/plugins/matrix-auth.hpi -#
+# RUN curl --location http://updates.jenkins-ci.org/latest/matrix-project.hpi --output /var/lib/jenkins/plugins/matrix-project.hpi -#
 # New plugins:
 RUN curl --location http://updates.jenkins-ci.org/latest/sidebar-link.hpi --output /var/lib/jenkins/plugins/sidebar-link.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/greenballs.hpi --output /var/lib/jenkins/plugins/greenballs.hpi -#
