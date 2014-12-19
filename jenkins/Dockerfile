@@ -85,6 +85,7 @@ RUN curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --outpu
 RUN curl --location http://updates.jenkins-ci.org/latest/beer.hpi --output /var/lib/jenkins/plugins/beer.hpi -#
 # Add Docker plugin - Use a docker host to dynamically provision a slave, run a single build, then tear-down that slave.
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --output /var/lib/jenkins/plugins/docker-plugin.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/durable-task.hpi --output /var/lib/jenkins/plugins/durable-task.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-plugin.hpi --output /var/lib/jenkins/plugins/docker-plugin.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/ssh-slaves.hpi --output /var/lib/jenkins/plugins/ssh-slaves.hpi -#
 
