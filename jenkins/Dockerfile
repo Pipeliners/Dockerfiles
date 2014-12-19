@@ -84,7 +84,9 @@ RUN \
   curl --location http://updates.jenkins-ci.org/latest/build-pipeline-plugin.hpi --output build-pipeline-plugin.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi --output parameterized-trigger.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output jquery.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output dashboard-view.hpi -#;
+  curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output dashboard-view.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output docker-build-publish.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output token-macro.hpi -#;
   
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
