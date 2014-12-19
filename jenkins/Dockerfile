@@ -82,6 +82,7 @@ RUN curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output /va
 RUN curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output /var/lib/jenkins/plugins/dashboard-view.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/docker-build-publish.hpi --output /var/lib/jenkins/plugins/docker-build-publish.hpi -#
 RUN curl --location http://updates.jenkins-ci.org/latest/token-macro.hpi --output /var/lib/jenkins/plugins/token-macro.hpi -#
+RUN curl --location http://updates.jenkins-ci.org/latest/beer.hpi --output /var/lib/jenkins/plugins/beer.hpi -#
 
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
