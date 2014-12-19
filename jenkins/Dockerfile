@@ -79,7 +79,12 @@ RUN \
   curl --location http://updates.jenkins-ci.org/latest/postbuild-task.hpi --output postbuild-task.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/copy-to-slave.hpi --output copy-to-slave.hpi -# && \
   curl --location http://updates.jenkins-ci.org/latest/git-client.hpi --output git-client.hpi -# && \
-  curl --location http://updates.jenkins-ci.org/latest/active-directory.hpi --output active-directory.hpi -#;
+  curl --location http://updates.jenkins-ci.org/latest/active-directory.hpi --output active-directory.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/jira.hpi --output jira.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/build-pipeline-plugin.hpi --output build-pipeline-plugin.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi --output parameterized-trigger.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/jquery.hpi --output jquery.hpi -# && \
+  curl --location http://updates.jenkins-ci.org/latest/dashboard-view.hpi --output dashboard-view.hpi -#;
   
 ENV JENKINS_HOME /var/lib/jenkins
 # RUN usermod -m -d "$JENKINS_HOME" jenkins && chown -R jenkins "$JENKINS_HOME"
