@@ -34,6 +34,6 @@
 FROM centos:centos7
 MAINTAINER Patrick M. Slattery <pslattery@mywebgrocer.org>
 
-RUN yum update -y && yum install -y nano tar unzip lsof && yum clean all
+RUN yum update -y && yum install -y nano tar unzip && yum clean all
 # Download and install jq
 RUN curl -k --location http://stedolan.github.io/jq/download/linux64/jq -o /usr/local/bin/jq -# && chmod -c +x /usr/local/bin/jq
