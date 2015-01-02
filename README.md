@@ -90,6 +90,9 @@ CONTAINER=registry.mywebgrocer.com/mywebgrocer/jenkins:1.594
 for i in {1..10}; do docker run --detach=true --publish=8${i}:80 --name=container${i} -t ${CONTAINER} && sleep 1;done
 # Count the containers we started
 docker ps|grep -c ${CONTAINER}
+sleep 60
+docker ps
+sleep 5
 # Stop all the containers
 docker stop $(docker ps -a -q)
 # Delete all the containers
